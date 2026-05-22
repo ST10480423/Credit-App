@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="header">
+      <div class="brand brand-row">
+        <div>
+          <h1>Results Dashboard</h1>
+          <p>Visual overview of your marks, credits, and percentages.</p>
+        </div>
+        <a class="btn btn-secondary header-link" href="index.html">Back To Calculator</a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="dashboard" aria-label="Results summary">
+        <article class="card stat-card">
+          <h2>Average Mark</h2>
+          <p id="resultAverageMark" class="stat-value">0%</p>
+        </article>
+        <article class="card stat-card">
+          <h2>Pass Rate (Credits)</h2>
+          <p id="resultPassRate" class="stat-value success">0%</p>
+        </article>
+        <article class="card stat-card">
+          <h2>Credit Completion</h2>
+          <p id="resultCompletion" class="stat-value">0%</p>
+        </article>
+        <article class="card stat-card">
+          <h2>Required Credits</h2>
+          <p id="resultRequiredCredits" class="stat-value">120</p>
+        </article>
+      </section>
+
+      <section class="results-grid" aria-label="Charts section">
+        <article class="card">
+          <h2>Pie Chart: Passed vs Failed Credits</h2>
+          <div class="pie-layout">
+            <div id="creditPie" class="pie-chart" role="img" aria-label="Pie chart showing passed and failed credit percentages">
+              <div class="pie-center">
+                <span>Pass</span>
+                <strong id="pieCenterPercent">0%</strong>
+              </div>
+            </div>
+
+            <div class="pie-legend">
+              <p><span class="legend-dot legend-pass"></span>Passed Credits: <strong id="piePassedCredits">0</strong> (<span id="piePassedPercent">0%</span>)</p>
+              <p><span class="legend-dot legend-fail"></span>Failed Credits: <strong id="pieFailedCredits">0</strong> (<span id="pieFailedPercent">0%</span>)</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Graph: Module Marks (%)</h2>
+          <p class="chart-help">Each bar represents a module percentage.</p>
+          <div id="markBars" class="bar-chart"></div>
+          <p id="barsEmpty" class="empty-state">No modules available yet. Add modules on the calculator page.</p>
+        </article>
+      </section>
+
+      <section class="card module-list" aria-label="Detailed results list">
+        <div class="module-list-header">
+          <h2>Detailed Module Results</h2>
+          <span id="resultsModuleCount">0 modules</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Credits</th>
+                <th>Mark</th>
+                <th>Semester</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <span id="resultsYear"></span> Student Credit Calculator</p>
+    </footer>
+  </div>
+
+  <script src="results.js"></script>
+</body>
+</html>
